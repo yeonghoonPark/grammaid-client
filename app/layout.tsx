@@ -41,7 +41,7 @@ const RootLayout = ({ children }: Readonly<Props>) => {
             </header>
 
             {/* Main */}
-            <main className="flex-1 py-6">{children}</main>
+            <main className="flex-1 py-8">{children}</main>
 
             {/* Footer */}
             <footer className="hidden">Footer</footer>
