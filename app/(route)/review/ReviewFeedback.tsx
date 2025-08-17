@@ -13,19 +13,18 @@ type Props = {
 const ReviewFeedback = ({ grammarApi }: Props) => {
   // React Hook Form
   const methods = useFormContext<ReviewFormValues>();
-  const { setFocus, setValue } = methods;
+  const { setValue } = methods;
 
   // React Query
   const { reviewData, isReviewPending } = grammarApi;
 
   /**
-   * Returns a callback that sets the input value and focuses the input field.
+   * Returns a callback that sets the input value the input field.
    *
    * @param sentence - The sentence string to set as the input value
-   * @returns A function that executes the value setting and focus when called
+   * @returns A function that executes the value setting when called
    */
   const handleClick = (sentence: string) => () => {
-    setFocus(REVIEW_FORM_VALUES.TEXT);
     setValue(REVIEW_FORM_VALUES.TEXT, sentence);
   };
 
@@ -46,10 +45,10 @@ const ReviewFeedback = ({ grammarApi }: Props) => {
 
     const voices = window.speechSynthesis
       .getVoices()
-      .filter((v) => v.lang === "en-US");
+      .filter((voice) => voice.lang === "en-US");
     const voice =
-      voices.find((v) => v.voiceURI === "Google US English") ||
-      voices.find((v) => v.default) ||
+      voices.find((voice) => voice.voiceURI === "Google US English") ||
+      voices.find((voice) => voice.default) ||
       voices[0];
 
     if (voice) utterance.voice = voice;
