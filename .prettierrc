@@ -1,0 +1,13 @@
+{
+  "importOrder": [
+    "^react$",
+    "^react/(.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "^@(components|constants|context|hooks|store|utils|)/(.*)",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "printWidth": 80
+}
